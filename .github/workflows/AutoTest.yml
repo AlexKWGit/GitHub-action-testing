@@ -1,0 +1,26 @@
+name: AutoTest-action
+on: 
+  push:
+    branches: 
+      - main
+
+jobs:
+  my_AutoTest:
+    runs-on: [ubuntu-latest]
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Install requests module
+        run: pip install requests
+
+      - name: Run test_name_city_program.py
+        run: |
+          echo "Run: test_name_city_program.py"
+          python test_name_city_program.py
