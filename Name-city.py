@@ -1,3 +1,8 @@
-name_user = input('Enter you name: ')
-city_user = input('Enter you city: ')
-print(f'You name is {name_user}. You city is {city_user}')
+def name_city_program():
+    name = input("Enter your name: ")
+    city = input("Enter your city: ")
+    result = f'You name is {name}. You city is {city}'
+    print(result)
+
+if __name__ == "__main__":
+    name_city_program()
