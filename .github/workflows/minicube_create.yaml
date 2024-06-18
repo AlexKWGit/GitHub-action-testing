@@ -1,4 +1,4 @@
-name: Add Minikube Cluster
+name: Add-Minikube-Cluster
 on:
   push:
     branches:
