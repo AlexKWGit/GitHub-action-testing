@@ -1,0 +1,25 @@
+name: Add KinD Cluster
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  setup-kind-cluster:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install KinD cluster
+        run: |
+          curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
+          chmod +x ./kind
+          sudo mv ./kind /usr/local/bin/kind
+          kind create cluster
+
+      - name: Get claster info
+        run: |
+          kubectl cluster-info
+          kubectl get nodes
+          kubectl version
